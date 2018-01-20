@@ -6,21 +6,31 @@ a{
   font-family: sans-serif;
 }
 #barChart{
-    width:600px;
+    width:700px;
     height:300px;
     position:absolute;
     left:60px;
     padding:0px;
+    z-index:10;
 }
-#graph{
+#Graph{
   width:100%;
   height:100%;
   position: absolute;
   z-index:1;
 }
+#canvas{
+  z-index:1;
+
+}
+#button{
+z-index:50;
+left:50px;
+position:relative;
+}
 
 .bar rect {
-  fill: rgb(81, 202, 223);
+  fill: rgb(70, 182, 201);
 }
 .domain{
   stroke:steelblue;
@@ -31,4 +41,7 @@ a{
 }
 line{
   stroke:steelblue;
+}
+rect.selection{
+  fill:rgba(90, 147, 153, 0.29)
 }

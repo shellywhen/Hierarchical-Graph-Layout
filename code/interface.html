@@ -8,27 +8,16 @@
     <link rel="icon" href="pic/icons.png" type=" image/png" >
     <link rel ="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/css.css">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
   </head>
   <nav class="navbar navbar-default" >
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
-        <!--span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span-->
       </button>
       <a class="navbar-brand" ><b>Hierarchical Graph Layout</b>  </a>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="dropdown" >
@@ -40,6 +29,7 @@
             <li onclick="getData(d3.select(this).attr('value'))" value="data/douban.json"><a href="#">Douban</a></li>
             <li onclick="getData(d3.select(this).attr('value'))" value="data/pgp.json"><a href="#">User PGP</a></li>
             <li onclick="getData(d3.select(this).attr('value'))" value="data/protein.json"><a href="#">Protein</a></li>
+              <li onclick="getData(d3.select(this).attr('value'))" value="data/pdz.json"><a href="#">PDZBase</a></li>
             <li onclick="getData(this.value)" value="#"><a href="#">~ On the Go ~</a></li>
             <li role="separator" class="divider" ></li>
             <li style="text-align:center">  Select Data Here</li>
@@ -50,8 +40,8 @@
       </ul>
 
 <p class="navbar-text navbar-right"> <a href="http://vis.pku.edu.cn/" class="navbar-link"> PKU Vis Group </a>  © 2018</p>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
 
   <body>
@@ -59,26 +49,13 @@
     <script src="js/lib/d3.min.js"></script>
     <script src="js/graph.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="min-height:500,max-width:600">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="text-decoration: none">
-        Degree Distribution & Selection
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body" id=barChart style="min-height:350,max-width:600" >
-        <!--div id=barChart>
-        </div-->
-      </div>
-    </div>
-  </div>
+    <script>getData("data/pdz.json");</script>
 
-  </div>
-    <!--div id=graph>
+    <div id='Graph'></div>
+    <button type="button" id="button" class="btn btn-info"  data-toggle="collapse" data-target="#barChart" aria-expanded="false" aria-controls= aria-controls="barChart">Degree Distribution & Selection</button>
+  <div  id=barChart class="collapse" style="min-height:350,max-width:600" >  </div>
 
-    </div-->
+
+
   </body>
 </html>
