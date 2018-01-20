@@ -1,7 +1,7 @@
 var node, link;
 var timeStart = new Date().getTime();
 var thd1, thd2;
-var radius=1000;
+var radius=5;
 var getData = function(file) {
   console.log(file)
   /*Clear data before*/
@@ -25,6 +25,7 @@ function barChartView() {
     height = [],
     bucket = new Int32Array(999999);
   for (var i in node) {
+    node[i].id = node[i].index
     stat.push(node[i].degree);
     if (node[i].degree > maxx)
       maxx = node[i].degree;
@@ -84,6 +85,7 @@ function barChartView() {
     .attr("width", function(d) {
       return (x(d.x1) - x(d.x0)) - 1;
     })
+    .attr("fill-opacity","0.9")
     .attr("height", function(d) {
       return height - y(d.length);
     });
@@ -117,7 +119,7 @@ function barChartView() {
   g.append("g")
     .attr("class", "brush")
     .call(brush)
-   .call(brush.move, x.range());
+  ;// .call(brush.move, x.range());
 
   function brushmoved() {
     var selection = d3.event.selection;
@@ -144,16 +146,17 @@ function graphView() {
         node[link[i].tid].degree <= thd2)
         newLink.push(link[i]);
     }
-    console.log("check data",newLink,newNode,link,node);
+
+   console.log("len",newNode.length,newNode, newLink);
 
     var width =parseInt( $("#Graph").css("width")),
       height = parseInt($("#Graph").css("height")),
        svg = d3.select("#Graph").append('svg').attr('id', 'canvas').attr("width",width).attr("height",height);
 
     var simulation = d3.forceSimulation()
-      .force("link", d3.forceLink().id(function(d) {return d.index;}))
+      .force("link", d3.forceLink().id(function(d) {return d.id;}))
       .force("charge", d3.forceManyBody())
-      .force("center", d3.forceCenter(parseInt($("body").css("width"))/2,parseInt($("body").css("height"))+400));
+      .force("center", d3.forceCenter(parseInt($("body").css("width"))/2,parseInt($("#Graph").css("height"))/2));
 
     var links = svg.append("g")
       .attr("class", "links")
@@ -179,6 +182,14 @@ function graphView() {
       .links(newLink);
 
     function ticked() {
+      nodes.attr("cx", function(d) {
+      //  return d.x;
+         return (d.x = Math.max(radius, Math.min(width - radius, d.x)));
+        })
+        .attr("cy", function(d) {
+        // ; return d.y;
+       return (d.y = Math.max(radius, Math.min(height - radius, d.y)));
+        });
       links.attr("x1", function(d) {
           return d.source.x;
         })
@@ -192,14 +203,7 @@ function graphView() {
           return d.target.y;
         });
 
-      nodes.attr("cx", function(d) {
-        return d.x;
-        // return (d.x = Math.min(radius, Math.min(width - radius, d.x)));
-        })
-        .attr("cy", function(d) {
-         return d.y;
-      // return (d.y = Math.max(radius, Math.min(height - radius, d.y)));
-        });
+
     }
 
     function dragstarted(d) {
