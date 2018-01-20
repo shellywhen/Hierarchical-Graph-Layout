@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link rel="icon" href="pic/icons.png" type=" image/png" >
+    <title>See the Graph</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/css.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" style="font-family:Sans-Serif"><b>Hierarchical Graph Layout</b>  </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="interface.html"> Home</a></li>
+        <li><a href="#">Guide</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+
+<p class="navbar-text navbar-right"> <a href="http://vis.pku.edu.cn/" class="navbar-link"> PKU Vis Group </a>  © 2018</p>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+  <body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/lib/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/d3.min.js"></script>
+    <script src="js/graph.js"></script>
+    <div class="panel panel-default"style="max-width:700px;font-family=Sans-Serif;position:relative;
+  left:20px">
+  <!-- Default panel contents -->
+
+
+  <!-- Table -->
+  <table class="table">
+  <thead><tr class="tableizer-firstrow"><th>Name</th><th>Nodes</th><th>Edges</th><th>Source</th><th>Type</th><th>Description</th></tr></thead><tbody>
+   <tr><td>DBLP</td><td>1174</td><td>3964</td><td><a href="http://opendata.pku.edu.cn/dataset.xhtml?persistentId=doi:10.18170/DVN/YDROUO">PKU Vis</a></td><td>Collaboration Network</td><td>PKU EECS AI Apartment collaboration network</td></tr>
+   <tr><td>CA-HepPh</td><td>12008</td><td>118521</td><td><a href="http://snap.stanford.edu/data/ca-HepPh.html">Snap</a></td><td>Collaboration Network</td><td>Collaboration network of Arxiv High Energy Physics</td></tr>
+   <tr><td>Amazon</td><td>334863</td><td>925872</td><td><a href="http://snap.stanford.edu/data/com-Amazon.html">Snap</a></td><td>Product co-purchasing Network</td><td>Amazon product network</td></tr>
+   <tr><td>User PGP</td><td>10680</td><td>24316</td><td><a href="http://konect.uni-koblenz.de/networks/arenas-pgp">Konect</a></td><td>Online Contact</td><td>Interaction network of users of the Pretty Good Privacy (PGP) algorithm</td></tr>
+   <tr><td>Enron_email</td><td>36692</td><td>183831</td><td><a href="http://snap.stanford.edu/data/email-Enron.html">Snap</a></a></td><td>Communication Network</td><td>Email communication network from Enron</td></tr>
+   <tr><td>Facebook_ego</td><td>4039</td><td>88234</td><td><a href="http://snap.stanford.edu/data/egonets-Facebook.html">Snap</a></a></td><td>Social Network</td><td>Social circles from Facebook (anonymized)</td></tr>
+   <tr><td>Bright Kite</td><td>58228</td><td>214078</td><td><a href="http://snap.stanford.edu/data/loc-brightkite.html">Snap</a></td><td>Social Network</td><td>Brightkite location based online social network</td></tr>
+   <tr><td>Douban</td><td>154908</td><td>327162</td><td><a href="http://konect.uni-koblenz.de/networks/douban">Knoect</a></td><td>Social Network</td><td>Social circles from Douban (anonymized)</td></tr>
+    <tr><td>Protein</td><td>3133</td><td>16401</td><td><a href="http://konect.uni-koblenz.de/networks/maayan-vidal">Knoect</a></td><td>Metabolic</td><td>A proteome-scale map of Human binary protein–protein interactions</td></tr>
+  </tbody></table>
+
+</div>
+  </body>
+</html>
